@@ -3,7 +3,7 @@ module Cms
   # A parent class for users that need to be persisted in the CMS database.
   class PersistentUser < ActiveRecord::Base
 
-    self.table_name = 'cms_users'
+    self.table_name = 'users'
 
     # Note that Chrome doesn't expire session cookies immediately so test this in other browsers.
     # http://stackoverflow.com/questions/16817229/issues-with-devise-rememberable
@@ -13,7 +13,6 @@ module Cms
            :rememberable,
            :recoverable,  # Needs to be here so forgot password link works.
            :authentication_keys => [:login]
-
 
     has_many :user_group_memberships, :class_name => 'Cms::UserGroupMembership', foreign_key: :user_id
     has_many :groups, :through => :user_group_memberships, :class_name => 'Cms::Group', foreign_key: :user_id
@@ -203,6 +202,10 @@ module Cms
 
     def able_to_edit_or_publish_content?
       able_to?(:edit_content, :publish_content)
+    end
+
+    def source
+      "Users"
     end
 
   end
