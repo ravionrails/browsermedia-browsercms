@@ -1,10 +1,11 @@
 module Cms
   module Sites
-    class PasswordsController < Devise::PasswordsController
+    class PasswordsController1 < Devise::PasswordsController
       include Cms::ContentPage
       helper AuthenticationHelper
 
-      template :default
+      #template :default
+      layout 'application'
 
       def new
         use_page_title('Forgot Password')
