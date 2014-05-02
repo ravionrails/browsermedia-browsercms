@@ -5,7 +5,7 @@ Cms::Engine.routes.draw do
   get 'fakemap', to: 'section_nodes#fake'
   get '/content/:id/edit', :to => "content#edit", :as => 'edit_content'
   get '/dashboard', :to => "dashboard#index", :as => 'dashboard'
-  get '/home', :to => 'home#index', :as => 'home'
+  get '/', :to => 'home#index', :as => 'home'
   get '/sitemap', :to => "section_nodes#index", :as => 'sitemap'
   get '/content_library', :to => "html_blocks#index", :as => 'content_library'
   get '/administration', :to => "users#index", :as => 'administration'

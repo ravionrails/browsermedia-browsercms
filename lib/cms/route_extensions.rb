@@ -55,7 +55,7 @@ module Cms::RouteExtensions
 
     # Handle 'stock' attachments
     get "/attachments/:id/:filename", :to => "cms/attachments#download"
-    get "/content_show", :to => "cms/content#show"
+    get "/", :to => "cms/content#show"
 
     # Only need :POST to support  portlets that are acting like controllers.
     # Ideally we could get rid of this need.
